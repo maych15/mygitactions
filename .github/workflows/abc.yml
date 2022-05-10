@@ -1,0 +1,27 @@
+name: Super-Linter
+
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]    
+
+jobs:
+  super-lint:
+    name: Lint code base
+    runs-on: ubuntu-latest
+    env:
+      today: Helloworld
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print Test
+        run: echo "today is ${{env.today}}"
+        
+      - name: Run Super linter
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
