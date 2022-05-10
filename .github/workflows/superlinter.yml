@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       today: Helloworld
+      files: new
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
